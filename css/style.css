@@ -1,0 +1,245 @@
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn:focus {
+  box-shadow: none !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Lato', 'Noto Sans TC', 'sans-serif';
+  font-size: 2.2em;
+  line-height: 1.7;
+}
+
+.wrap {
+  background: url(/img/background.jpg) repeat left/ cover;
+  height: 100vh;
+  padding: 30px 15px;
+}
+
+.todoForm {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, .6);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  transition: transform 0.5s;
+}
+
+#submitTodo {
+  float: right;
+  margin-top: 10px;
+}
+
+.todoForm-show {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.content .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(0, 0, 0, 255);
+  line-height: 30px;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.content {
+  max-width: 700px;
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  background-color: #ccc;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  height: 90vh;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 30px;
+  font-size: 4rem;
+}
+
+header .taskType {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+header .taskType .tag {
+  cursor: pointer;
+  color: #000;
+  font-size: 1.5rem;
+  margin: 0 15px;
+  padding: 15px;
+}
+
+header .taskType .active {
+  cursor: pointer;
+  background-color: #0072E3;
+  color: #fff;
+  border-radius: 5px;
+}
+
+header input {
+  border-width: 0px;
+  border: none;
+  background: transparent;
+}
+
+header input:focus {
+  outline: none;
+}
+
+header .addTodoTxt {
+  line-height: 3rem;
+  border-bottom: 3px solid #414141;
+  font-size: 2rem;
+  width: 40%;
+  padding: 0.3rem 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: #313131;
+}
+
+header .fa-plus-square {
+  vertical-align: top;
+  cursor: pointer;
+}
+
+#todos {
+  width: 85%;
+  height: calc(100% - 250px);
+  margin: 30px auto;
+  border: 1px solid grey;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.todoTable {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+}
+
+.todoTable thead {
+  font-weight: 700;
+}
+
+.todoTable th {
+  position: sticky;
+  top: 0;
+  background-color: #7B7B7B;
+  color: #fff;
+  padding: 10px;
+}
+
+.todoTable tr:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.todoTable tr:not(:last-child) {
+  border-bottom: 1px solid #008;
+}
+
+.todoTable tr:nth-child(even) {
+  background: rgba(#6cffd1, .2);
+}
+
+#todos .todoTable td {
+  padding: 10px 0;
+}
+
+.nothingTodo {
+  color: #8E8E8E;
+  font-size: 1.2em;
+}
+
+#todos .todoTable .success {
+  color: green;
+  font-weight: 700;
+}
+
+#todos .todoTable td .fail {
+  color: red;
+  font-weight: 700;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 700;
+}
+
+.swal2-content {
+  font-size: 1.5em !important;
+}
+
+@keyframes twinkl {
+  0% {
+    background: '';
+  }
+  50% {
+    background: #FFFF93;
+  }
+  100% {
+    background: '';
+  }
+}
+
+/* 手機板 */
+
+@media screen and (max-width:768px) {
+  .wrap {
+    background: url(/img/background.jpg) repeat left / center;
+  }
+  #todos {
+    /* height: calc(100% - 250px); */
+  }
+  header .addTodoTxt {
+    width: 85%;
+  }
+  .content {
+    width: 80%;
+  }
+}

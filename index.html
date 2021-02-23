@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+  <title>todoList</title>
+</head>
+<body>
+  <div class="wrap">
+    <div class="container">
+      <header>
+        <h1>My todoList</h1>
+        <div class="taskType">
+          <span data-type="all" class="tag active">全部</span>
+          <span data-type="emergent_Important" class="tag">緊急重要</span>
+          <span data-type="emergent_N-Important" class="tag">緊急不重要</span>
+          <span data-type="N-emergent_Important" class="tag">不緊急重要</span>
+          <span data-type="N-emergent_N-Important" class="tag">不緊急不重要</span>
+        </div>
+        <div class="addTask">
+          <input class="addTodoTxt" type="text" placeholder="What needs to be done?">
+          <i id="addNewBtn" class="fa fa-plus-square fa-4x" aria-hidden="true"></i>
+        </div>
+      </header>
+      <section id="todos">
+        <table class="todoTable">
+          <thead>
+            <tr>
+              <th width=10%>類型</th>
+              <th width=15%>緊急程度程度</th>
+              <th>名稱</th>
+              <th width=15%>預計完成日期</th>
+              <th width=10%>剩餘時間</th>
+              <th width=15%>編輯</th>
+            </tr>
+          </thead>
+          <tbody id="tableTbody" style="overflow: scroll;"></tbody>
+        </table>
+      </section>
+    </div>
+    <!-- todoForm-show -->
+    <div class="todoForm ">
+      <div class="content">
+        <div class="close">X</div>
+        <form>
+          <div class="form-group">
+            <label for="">事件名稱</label>
+            <input type="text" class="form-control form-control-lg" id="todoTitle" readonly>
+          </div>
+          <div class="form-group">
+            <label class="finishLabel" for="">預計完成日期</label>
+            <input type="text" class="form-control" id="completeDate">
+          </div>
+          <div class="form-group">
+            <label for="diploma">類型</label>
+            <select id="todoType" name="todoType" class="form-control">
+              <option value="emergent_Important" selected>緊急重要
+              <option value="emergent_N-Important">緊急不重要
+              <option value="N-emergent_Important">不緊急重要
+              <option value="N-emergent_N-Important">不緊急不重要
+            </select>
+          </div>
+        </form>
+        <!-- Submit button -->
+        <button id="submitTodo" class="btn btn-success"></button>
+
+      </div>
+    </div>
+
+    <div class="copyright">janshawn © 2021 update</div>
+  </div>
+
+
+
+  <!-- sweetalert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <!-- font-Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- jquery -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <!-- moment -->
+  <script src="/js/moment.js"></script>
+  <!-- popper.min.js -->
+  <script src="/js/popper.min.js"></script>
+  <!-- 日期選擇器語系 -->
+  <script src="/js/zh-tw.js"></script>
+  <!-- 日期選擇器 -->
+  <script src="/js/bootstrap-datetimepicker.min.js"></script>
+
+  <!-- main -->
+  <script src="/js/main.js"></script>
+
+</body>
+</html>
