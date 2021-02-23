@@ -25,7 +25,7 @@ body {
 }
 
 .wrap {
-  background: url(/img/background.jpg) repeat left/ cover;
+  background: url(../img/background.jpg) repeat left/ cover;
   height: 100vh;
   padding: 30px 15px;
 }
@@ -231,7 +231,7 @@ header .fa-plus-square {
 
 @media screen and (max-width:768px) {
   .wrap {
-    background: url(/img/background.jpg) repeat left / center;
+    background: url(../img/background.jpg) repeat left / center;
   }
   #todos {
     /* height: calc(100% - 250px); */
