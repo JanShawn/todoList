@@ -41,13 +41,13 @@ function getRenderContent(obj) { //取得渲染內容
     switch (day) {
       //程度(3天以上->1火,2天->2火,1天->3火)
       case 0: case 1:
-        degree = `<img src="/img/fire.png"><img src="/img/fire.png"><img src="/img/fire.png">`;
+        degree = `<img src="img/fire.png"><img src="img/fire.png"><img src="img/fire.png">`;
         break;
       case 2:
-        degree = `<img src="/img/fire.png"><img src="/img/fire.png">`;
+        degree = `<img src="img/fire.png"><img src="img/fire.png">`;
         break;
       default:
-        degree = `<img src="/img/fire.png">`;
+        degree = `<img src="img/fire.png">`;
         break;
     }
     result.degreeImg = `<td>${degree}</td>`;
