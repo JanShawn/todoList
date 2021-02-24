@@ -58,9 +58,9 @@ function getRenderContent(obj) { //取得渲染內容
   }
   return result;
 }
-function getActiveList() { //處理塞選清單
+function getActiveList() { //處理篩選清單
   var resultList = [];
-  var activeSpan = null;//塞選的標籤
+  var activeSpan = null;//篩選的標籤
   var typeSpan = document.querySelectorAll(".taskType>span");//對象
   typeSpan.forEach(span => { if (span.classList.contains("active")) activeSpan = span; });
   if (activeSpan.dataset.type == 'all') {
@@ -107,7 +107,6 @@ var todosModal = {
 var controller = {
   addTodo: function (todoObj) {
     todosModal.addTodo(todoObj);//insert localStorage
-    debugger;
     view.displayTodos(todosModal.todoList, todoObj.sn);//刷新table
   },
   changeTodo: function (sn, todoObj) {
@@ -120,7 +119,6 @@ var controller = {
   },
   toggleTodo: function (sn) {
     todosModal.toggleTodo(sn);
-    // view.displayTodos();
   },
 };
 //*-----view-----*//
@@ -141,7 +139,7 @@ var view = {
           `<td data-deadlne="${obj.deadline}"></td>` +//剩餘時間
           `<td>
           ${renderContent.toggle}
-          <button class="btn  btn-outline-dark edit"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
+          <button class="d-${!obj.completed ? 'inline' : 'none'} btn  btn-outline-dark edit"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></button>
           <button class="btn btn-outline-danger trashCan"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></button>
           </td>` +
           `</tr>`
@@ -184,13 +182,17 @@ var view = {
         //setlocalStorage
         controller.toggleTodo(trObj.sn);
         //cheangeRender
-        var targetClass = e.target.className;
-        if (targetClass.indexOf('btn-outline-success') >= 0) {
+        var editBtn = e.target.nextElementSibling
+        if (trObj.completed) {
           target.classList.remove('btn-outline-success');
           target.classList.add('btn-success');
+          editBtn.classList.remove('d-inline');
+          editBtn.classList.add('d-none');
         } else {
           target.classList.remove('btn-success');
           target.classList.add('btn-outline-success');
+          editBtn.classList.remove('d-none');
+          editBtn.classList.add('d-inline');
         }
         target.innerText = target.innerText == '完成' ? '取消完成' : '完成';
         var degreeTd = todoTr.children[1];//緊急程度
@@ -264,7 +266,6 @@ var view = {
     submit.innerHTML = (type == 'add') ? '新增' : '修改';
     //給予todo屬性(sn位置)
     submit.sn = obj.sn;
-
   },
   initReset() {
     //其他處理
