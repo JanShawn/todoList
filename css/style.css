@@ -4,7 +4,9 @@ html {
   font-size: 62.5%;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -36,7 +38,7 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, .6);
+  background-color: rgba(0, 0, 0, 0.6);
   -webkit-transform: scale(0);
   transform: scale(0);
   transition: transform 0.5s;
@@ -113,7 +115,7 @@ header .taskType .tag {
 
 header .taskType .active {
   cursor: pointer;
-  background-color: #0072E3;
+  background-color: #0072e3;
   color: #fff;
   border-radius: 5px;
 }
@@ -167,13 +169,13 @@ header .fa-plus-square {
 .todoTable th {
   position: sticky;
   top: 0;
-  background-color: #7B7B7B;
+  background-color: #7b7b7b;
   color: #fff;
   padding: 10px;
 }
 
 .todoTable tr:hover {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .todoTable tr:not(:last-child) {
@@ -181,7 +183,7 @@ header .fa-plus-square {
 }
 
 .todoTable tr:nth-child(even) {
-  background: rgba(#6cffd1, .2);
+  background: rgba(#6cffd1, 0.2);
 }
 
 #todos .todoTable td {
@@ -189,7 +191,7 @@ header .fa-plus-square {
 }
 
 .nothingTodo {
-  color: #8E8E8E;
+  color: #8e8e8e;
   font-size: 1.2em;
 }
 
@@ -220,7 +222,7 @@ header .fa-plus-square {
     background: '';
   }
   50% {
-    background: #FFFF93;
+    background: #ffff93;
   }
   100% {
     background: '';
@@ -229,7 +231,7 @@ header .fa-plus-square {
 
 /* 手機板 */
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
   .wrap {
     background: url(../img/background.jpg) repeat left / center;
   }
