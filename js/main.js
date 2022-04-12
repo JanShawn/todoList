@@ -40,8 +40,8 @@ function getRenderContent(obj) {
   result.typeText = `<td>${typeTxt}</td>`;
   result.toggle = '<button class="btn btn-outline-success complete">完成</button>';
   if (obj.completed) {
-    result.degreeImg = '<td><img src="img/ok.png"></td>';
-    result.remainTime = '<td><span class="success">已完成!</span></td>';
+    result.degreeImg = '<img src="img/ok.png">';
+    result.remainTime = '<span class="success">已完成!</span>';
     result.toggle = '<button class="btn btn-success complete">取消完成</button>';
   } else if (!obj.completed && remainTime.total > 0) {
     var degree = '';
@@ -61,12 +61,12 @@ function getRenderContent(obj) {
         degree = `<img src="img/fire.png">`;
         break;
     }
-    result.degreeImg = `<td>${degree}</td>`;
+    result.degreeImg = `${degree}`;
     result.remainTime = deadline - currentTime;
   } else {
     //失敗
-    result.degreeImg = `<td><img src="img/fail.png"></td>`;
-    result.remainTime = `<td><span class="fail">過期啦!</span></td>`;
+    result.degreeImg = `<img src="img/fail.png">`;
+    result.remainTime = `<span class="fail">過期啦!</span>`;
   }
   return result;
 }
@@ -156,7 +156,7 @@ var view = {
           return (
             `<tr data-index="${index}" data-sn="${obj.sn}" >` +
             `${renderContent.typeText}` + //種類
-            `${renderContent.degreeImg}` + //緊急程度
+            `<td>${renderContent.degreeImg}</td>` + //緊急程度
             `<td>${obj.todoText}</td>` + //名稱
             `<td>${moment(obj.deadline).format('YYYY/MM/DD<br>(Ahh:mm)')}</td>` + //預計完成日期
             `<td data-deadlne="${obj.deadline}"></td>` + //剩餘時間
@@ -427,8 +427,8 @@ setInterval(function () {
         } else {
           remainTxt = renderContent.remainTime;
         }
-        degreeTd.innerHTML = renderContent.degreeImg;
-        remainTd.innerHTML = remainTxt;
+        if (degreeTd.innerHTML != renderContent.degreeImg) degreeTd.innerHTML = renderContent.degreeImg;
+        if (remainTd.innerHTML != remainTxt) remainTd.innerHTML = remainTxt;
       }
     });
   }
